@@ -1,0 +1,14 @@
+[Unit]
+Description=sts_client_media_ex主题后台消费服务
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/sts_client_media_ex
+ExecStart=/bin/bash -c './MongodbConsumer sts_client_media_ex client_media_ex 1>>log.txt 2>&1'
+Restart=always
+RestartSec=1
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target
